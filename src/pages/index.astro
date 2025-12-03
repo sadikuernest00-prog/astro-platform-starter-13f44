@@ -1,4 +1,3 @@
-
 ---
 const featuresBorrower = [
   "Reach real people willing to lend, not just banks.",
@@ -20,10 +19,10 @@ const featuresLender = [
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Amicbridge – Borrow, Lend & Tokenize Assets</title>
+    <title>Amicbridge – Borrow and Lend Directly</title>
     <meta
       name="description"
-      content="Amicbridge connects people who want to borrow with people who want to lend – non-custodial, wallet-to-wallet, with support for tokenized real-world assets."
+      content="Amicbridge connects people who want to borrow money with people who want to lend – directly, person to person, using normal money or crypto."
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
@@ -191,6 +190,7 @@ const featuresLender = [
       .fake-input span {
         color: var(--muted);
       }
+
       .calc-field {
         background: transparent;
         border: none;
@@ -205,6 +205,7 @@ const featuresLender = [
       .calc-field:focus {
         outline: none;
       }
+
       .toggle-row {
         display: flex;
         gap: 0.6rem;
@@ -251,6 +252,7 @@ const featuresLender = [
       .feature-card li + li {
         margin-top: 0.25rem;
       }
+
       .borrow-form {
         display: flex;
         flex-direction: column;
@@ -287,6 +289,7 @@ const featuresLender = [
         margin-top: 0.3rem;
         align-self: flex-start;
       }
+
       footer {
         margin-top: 2.5rem;
         font-size: 0.75rem;
@@ -309,9 +312,7 @@ const featuresLender = [
         </div>
         <nav>
           <a href="#how">How it works</a>
-          <a href="/verify-wallet">Verify wallet</a>
-          <a href="#tokenized-assets">Tokenize assets</a>
-          <a href="#investors">For investors</a>
+          <a href="#sharia">Sharia asset demo</a>
           <a href="#contact">Contact</a>
           <a href="#safety">Safety</a>
           <a class="button" href="#start">Get started</a>
@@ -319,18 +320,18 @@ const featuresLender = [
       </header>
 
       <main>
-        <!-- HERO -->
         <section class="hero" id="start">
           <div>
             <h1>
-              Non-custodial lending. <span>People to people.</span><br />
+              Borrow from people. <span>Lend to people.</span><br />
               One simple bridge.
             </h1>
             <p class="hero-text">
-              Amicbridge connects people who want to <strong>borrow</strong> with people who
-              want to <strong>lend</strong> – wallet to wallet, using normal money or crypto.
-              We never hold your funds or keys. You agree the terms, payment method, and risk.
-              We just help you find and verify each other.
+              Amicbridge connects people who want to
+              <strong>borrow</strong> with people who want to
+              <strong>lend</strong> – using normal money or crypto. You agree
+              the terms and payment method and always use your own bank or
+              wallet. We just help you find each other.
             </p>
 
             <div class="cta-row">
@@ -341,15 +342,12 @@ const featuresLender = [
                 I want to lend
               </a>
             </div>
-
             <p class="tiny-note">
-              ✅ Non-custodial – we never hold your crypto or bank funds.<br />
-              ✅ Wallet verification – prove ownership without sharing private keys.<br />
-              ✅ Human-first – you chat, negotiate and agree before any funds move.
+              Accounts, messaging and full matching are coming soon. For now,
+              you can join the early access list.
             </p>
           </div>
 
-          <!-- CALCULATOR -->
           <aside>
             <div class="card" id="loan-calculator">
               <div class="pill">
@@ -422,7 +420,6 @@ const featuresLender = [
           </aside>
         </section>
 
-        <!-- FEATURES -->
         <section class="features" id="how">
           <div class="feature-card">
             <h2>For borrowers</h2>
@@ -438,14 +435,14 @@ const featuresLender = [
           </div>
         </section>
 
-        <!-- Borrow form -->
+        <!-- Borrow form – Netlify form "borrow" -->
         <section id="borrow-form" class="features" style="margin-top: 3rem;">
           <div class="feature-card">
             <h2>Borrow money</h2>
             <p class="tiny-note">
               Fill in your details and we’ll receive your request. You can use
               normal money (bank transfer) or crypto. Payments always happen
-              directly between you and the lender.
+              directly between you and the lender using your own bank or wallet.
             </p>
 
             <form
@@ -491,11 +488,7 @@ const featuresLender = [
               </div>
 
               <div class="borrow-row">
-                <select
-                  class="borrow-input"
-                  name="payment_method"
-                  required
-                >
+                <select class="borrow-input" name="payment_method" required>
                   <option value="">
                     Preferred payment method (bank or crypto)
                   </option>
@@ -507,7 +500,7 @@ const featuresLender = [
                   class="borrow-input"
                   type="text"
                   name="crypto_details"
-                  placeholder="If crypto: coin + network (e.g. USDT on Ethereum)"
+                  placeholder="If crypto: coin + wallet (e.g. USDT on Ethereum)"
                 />
               </div>
 
@@ -529,25 +522,19 @@ const featuresLender = [
               <button type="submit" class="btn btn-primary borrow-submit">
                 Send request
               </button>
-
-              <p class="tiny-note" style="margin-top:0.6rem;">
-                What happens next:
-                <br />1) We receive your request by email.
-                <br />2) We review it and look for a matching lender.
-                <br />3) If we find a match, we contact you with the next steps.
-              </p>
             </form>
           </div>
         </section>
 
-        <!-- Lend form -->
+        <!-- Lend form – Netlify form "lend" -->
         <section id="lend-form" class="features" style="margin-top: 3rem;">
           <div class="feature-card">
             <h2>Lend money</h2>
             <p class="tiny-note">
               Tell us how much you want to lend, how you want to be paid
-              (bank/crypto), and on what terms. Verified lenders may receive a
-              special badge in our communication.
+              (bank/crypto), and on what terms. You always keep control of your
+              own bank account or wallet. Verified lenders may receive a special
+              badge in our communication.
             </p>
 
             <form
@@ -593,11 +580,7 @@ const featuresLender = [
               </div>
 
               <div class="borrow-row">
-                <select
-                  class="borrow-input"
-                  name="payment_method"
-                  required
-                >
+                <select class="borrow-input" name="payment_method" required>
                   <option value="">
                     Preferred payment method (bank or crypto)
                   </option>
@@ -609,7 +592,7 @@ const featuresLender = [
                   class="borrow-input"
                   type="text"
                   name="crypto_details"
-                  placeholder="If crypto: coin + network (e.g. BTC, ETH, USDT)"
+                  placeholder="If crypto: coin + wallet (e.g. BTC, ETH, USDT)"
                 />
               </div>
 
@@ -619,7 +602,7 @@ const featuresLender = [
                   type="number"
                   step="0.1"
                   name="interest"
-                  placeholder="Desired interest rate (%)"
+                  placeholder="Desired interest or profit share (%)"
                 />
                 <input
                   class="borrow-input"
@@ -646,110 +629,238 @@ const featuresLender = [
               <button type="submit" class="btn btn-primary borrow-submit">
                 Send lending offer
               </button>
-
-              <p class="tiny-note" style="margin-top:0.6rem;">
-                What happens next:
-                <br />1) We receive your lending offer.
-                <br />2) We may contact you to verify some details.
-                <br />3) When we find a suitable borrower, we reach out to both of you.
-              </p>
             </form>
           </div>
         </section>
 
-        <!-- Verification info -->
-        <section id="verification" class="features" style="margin-top: 2rem;">
+        <!-- Sharia asset finance demo -->
+        <section id="sharia" class="features" style="margin-top: 3rem;">
           <div class="feature-card">
-            <h2>How lender verification works</h2>
+            <h2>Sharia-compliant asset financing (demo)</h2>
             <p class="tiny-note">
-              To give borrowers extra confidence, we may manually verify lenders
-              before connecting them.
-            </p>
-            <ul>
-              <li>We review the information you send in the lend form.</li>
-              <li>
-                We may contact you for simple checks, like ID or company
-                details.
-              </li>
-              <li>
-                Verified lenders can be marked with a “Verified lender” note in
-                our communication.
-              </li>
-              <li>
-                Verification helps build trust but does not guarantee repayments
-                or remove your own responsibility to check each loan.
-              </li>
-            </ul>
-          </div>
-        </section>
-
-        <!-- FAQ -->
-        <section class="features" style="margin-top:2rem;">
-          <div class="feature-card">
-            <h2>FAQ</h2>
-            <p class="tiny-note"><strong>Are you a bank?</strong><br />
-              No. Amicbridge only connects people who want to borrow with people who want to lend.
-              We never hold your money or crypto.
-            </p>
-            <p class="tiny-note"><strong>Can I use crypto?</strong><br />
-              Yes, if both sides agree. You choose this in the form, and then arrange payments
-              directly with the other person.
-            </p>
-            <p class="tiny-note"><strong>Do you guarantee repayments?</strong><br />
-              No. Every loan is an agreement directly between borrower and lender.
-            </p>
-            <p class="tiny-note"><strong>Should I ever share my seed phrase?</strong><br />
-              Never. No one from Amicbridge or any lender/borrower should ask for your seed phrase
-              or private keys.
-            </p>
-          </div>
-        </section>
-
-        <!-- Tokenized assets – early access -->
-        <section
-          id="tokenized-assets"
-          class="features"
-          style="margin-top: 3rem;"
-        >
-          <div class="feature-card">
-            <h2>Tokenize your asset (early access)</h2>
-            <p class="tiny-note" style="margin-bottom: 0.8rem;">
-              If you already own an asset and want to explore tokenizing it so other people
-              can invest or lend against it, you can send us the details here.
-              This is an early-access concept – we do not automatically create tokens
-              or sell securities. Every case is reviewed manually.
+              This is a testnet demo of a Murabaha-style deal (no interest –
+              just cost price plus agreed profit on a real asset). It records
+              the agreement on-chain using your own wallet. Do not use this for
+              real money yet.
             </p>
 
-            <form
-              name="tokenize-asset"
-              method="POST"
-              data-netlify="true"
-              class="borrow-form"
+            <button
+              id="sharia-connect"
+              class="btn btn-outline"
+              type="button"
+              style="margin-bottom:0.7rem;"
             >
-              <input type="hidden" name="form-name" value="tokenize-asset" />
+              Connect wallet (testnet)
+            </button>
 
-              <div class="borrow-row">
-                <input
-                  class="borrow-input"
-                  type="text"
-                  name="name"
-                  placeholder="Your name"
-                  required
-                />
-                <input
-                  class="borrow-input"
-                  type="email"
-                  name="email"
-                  placeholder="Email"
-                  required
-                />
-              </div>
+            <form id="sharia-form" class="borrow-form">
+              <input
+                class="borrow-input"
+                type="text"
+                name="assetDesc"
+                placeholder="Asset (e.g. 1kg gold bar)"
+                required
+              />
+              <input
+                class="borrow-input"
+                type="number"
+                name="costPrice"
+                placeholder="Cost price (e.g. 50000)"
+                required
+              />
+              <input
+                class="borrow-input"
+                type="number"
+                name="salePrice"
+                placeholder="Sale price (e.g. 53500)"
+                required
+              />
+              <input
+                class="borrow-input"
+                type="number"
+                name="durationMonths"
+                placeholder="Duration in months (e.g. 12)"
+                required
+              />
 
-              <div class="borrow-row">
-                <select
-                  class="borrow-input"
-                  name="asset_type"
-                  required
-                >
-                  <option value="">Type of asset you own</option>
-                  <option
+              <button class="btn btn-primary borrow-submit" type="submit">
+                Create Sharia deal (on-chain demo)
+              </button>
+            </form>
+
+            <p
+              class="tiny-note"
+              id="sharia-status"
+              style="margin-top:0.6rem;"
+            >
+              Status: Not connected.
+            </p>
+          </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="features" style="margin-top: 2rem;">
+          <div class="feature-card">
+            <h2>Contact</h2>
+            <p><strong>CEO:</strong> Robert</p>
+            <p><strong>Address:</strong> Oslo, Norway</p>
+            <p><strong>Phone:</strong> 929 28 373</p>
+            <p>
+              <strong>Email:</strong>
+              <a href="mailto:robertamicolsen@gmail.com" style="color:var(--accent);">
+                robertamicolsen@gmail.com
+              </a>
+            </p>
+          </div>
+        </section>
+
+        <footer id="safety">
+          <p>
+            <strong>Important:</strong> Amicbridge is a connection platform.
+            We do not provide loans, hold money, or guarantee repayments. You
+            are responsible for any payments you send or receive, whether by
+            bank transfer or crypto. Always do your own checks and consult a
+            professional if needed before lending or borrowing. Never share your
+            wallet seed phrase or private keys with anyone.
+          </p>
+        </footer>
+      </main>
+    </div>
+
+    <!-- Calculator script -->
+    <script>
+      const amountInput = document.getElementById("calc-amount");
+      const durationInput = document.getElementById("calc-duration");
+      const rateInput = document.getElementById("calc-rate");
+      const offerSpan = document.getElementById("calc-offer");
+      const monthlySpan = document.getElementById("calc-monthly");
+      const totalSpan = document.getElementById("calc-total");
+
+      function updateCalc() {
+        const amount = parseFloat(amountInput.value || "2000");
+        const months = parseFloat(durationInput.value || "6");
+        const rate = parseFloat(rateInput.value || "4.5");
+
+        if (!amount || !months || !rate) {
+          offerSpan.textContent = "€2,000 · 4.5% APR";
+          monthlySpan.textContent = "€0";
+          totalSpan.textContent = "€0";
+          return;
+        }
+
+        const total = amount * (rate / 100 * (months / 12) + 1);
+        const monthly = total / months;
+
+        offerSpan.textContent = `€${amount.toFixed(0)} · ${rate.toFixed(
+          1
+        )}% APR`;
+        monthlySpan.textContent = `€${monthly.toFixed(0)}`;
+        totalSpan.textContent = `€${total.toFixed(0)}`;
+      }
+
+      [amountInput, durationInput, rateInput].forEach((el) => {
+        el.addEventListener("input", updateCalc);
+      });
+
+      updateCalc();
+    </script>
+
+    <!-- Ethers.js for Sharia demo -->
+    <script src="https://cdn.jsdelivr.net/npm/ethers@6.13.2/dist/ethers.umd.min.js"></script>
+    <script>
+      // TODO: replace with your real ShariaAssetFinance contract address on Sepolia
+      const SHARIA_CONTRACT_ADDRESS =
+        "0xYOUR_SEPOLIA_SHARIA_CONTRACT_ADDRESS_HERE";
+
+      const SHARIA_CONTRACT_ABI = [
+        "function requestDeal(string assetDesc, uint256 costPrice, uint256 salePrice, uint256 durationMonths) external",
+        "function nextDealId() view returns (uint256)"
+      ];
+
+      const shariaConnectBtn = document.getElementById("sharia-connect");
+      const shariaForm = document.getElementById("sharia-form");
+      const shariaStatus = document.getElementById("sharia-status");
+
+      let shariaSigner = null;
+      let shariaContract = null;
+
+      async function connectShariaWallet() {
+        if (!window.ethereum) {
+          shariaStatus.textContent =
+            "Status: No wallet found. Install MetaMask to try the demo.";
+          return;
+        }
+
+        try {
+          await window.ethereum.request({ method: "eth_requestAccounts" });
+
+          const provider = new ethers.BrowserProvider(window.ethereum);
+          shariaSigner = await provider.getSigner();
+          shariaContract = new ethers.Contract(
+            SHARIA_CONTRACT_ADDRESS,
+            SHARIA_CONTRACT_ABI,
+            shariaSigner
+          );
+
+          const addr = await shariaSigner.getAddress();
+          shariaStatus.textContent =
+            "Status: Wallet connected as " +
+            addr +
+            ". Make sure you are on a testnet (e.g. Sepolia).";
+        } catch (err) {
+          console.error(err);
+          shariaStatus.textContent =
+            "Status: Failed to connect wallet (check MetaMask).";
+        }
+      }
+
+      async function handleShariaSubmit(event) {
+        event.preventDefault();
+        if (!shariaContract || !shariaSigner) {
+          shariaStatus.textContent = "Status: Connect wallet first.";
+          return;
+        }
+
+        const formData = new FormData(shariaForm);
+        const assetDesc = formData.get("assetDesc");
+        const costPrice = formData.get("costPrice");
+        const salePrice = formData.get("salePrice");
+        const durationMonths = formData.get("durationMonths");
+
+        try {
+          shariaStatus.textContent =
+            "Status: Sending transaction to record Sharia deal…";
+
+          const tx = await shariaContract.requestDeal(
+            assetDesc,
+            costPrice,
+            salePrice,
+            durationMonths
+          );
+
+          await tx.wait();
+
+          const nextId = await shariaContract.nextDealId();
+          const dealId = Number(nextId) - 1;
+
+          shariaStatus.textContent =
+            "Status: Sharia deal created on-chain (ID " +
+            dealId +
+            "). Tx hash: " +
+            tx.hash;
+        } catch (err) {
+          console.error(err);
+          shariaStatus.textContent =
+            "Status: Transaction failed or rejected (see console).";
+        }
+      }
+
+      if (shariaConnectBtn) {
+        shariaConnectBtn.addEventListener("click", connectShariaWallet);
+      }
+      if (shariaForm) {
+        shariaForm.addEventListener("submit", handleShariaSubmit);
+      }
+    </script>
+  </body>
+</html>
