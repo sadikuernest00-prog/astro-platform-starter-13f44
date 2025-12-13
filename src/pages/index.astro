@@ -633,21 +633,51 @@
           learn about investment strategy, or find partners to invest in a business and share profit together.
         </p>
 
-        <!-- BTC payment info -->
+        <!-- BTC payment info with QR -->
         <div class="card-simple" style="margin-bottom: 1.5rem;">
           <h3>One-time Bitcoin payment to join</h3>
           <p>
             To join the AmicBridge network, there is a one-time payment of <strong>599</strong>, paid in Bitcoin (BTC).
           </p>
           <p style="margin-top:0.4rem;">
-            Send the equivalent amount in BTC to this address:
+            Scan the QR code or send the equivalent amount in BTC to this address:
           </p>
-          <p style="margin-top:0.4rem; font-family: monospace; font-size: 0.9rem; word-break: break-all;">
-            3BjNYuWcg1iUKnypB8gee4ji5MQnUu3sRn
-          </p>
-          <p style="margin-top:0.5rem; font-size:0.8rem; color:#6b7280;">
+
+          <div style="display:flex; flex-direction:column; align-items:center; margin-top:0.8rem;">
+            <div id="btc-qr" style="width: 180px; height: 180px;"></div>
+            <p style="
+              margin-top:0.7rem;
+              font-size:0.85rem;
+              background:#f3f4f6;
+              padding:0.6rem 0.7rem;
+              border-radius:8px;
+              word-break:break-all;
+              color:#111827;
+              text-align:center;
+              border:1px solid #e5e7eb;
+            ">
+              3BjNYuWcg1iUKnypB8gee4ji5MQnUu3sRn
+            </p>
+            <button type="button"
+              onclick="navigator.clipboard && navigator.clipboard.writeText('3BjNYuWcg1iUKnypB8gee4ji5MQnUu3sRn')"
+              style="
+                margin-top:0.5rem;
+                padding:0.55rem 1.2rem;
+                border-radius:999px;
+                border:none;
+                background:#2563eb;
+                color:#ffffff;
+                font-size:0.85rem;
+                font-weight:500;
+                cursor:pointer;
+              ">
+              Copy BTC address
+            </button>
+          </div>
+
+          <p style="margin-top:0.7rem; font-size:0.78rem; color:#6b7280;">
             After you pay, include your Bitcoin transaction ID (TX hash) in the form below so we can match your payment
-            to your request.
+            to your request. Payment is verified manually.
           </p>
         </div>
 
@@ -715,7 +745,7 @@
                 </div>
               </div>
 
-              <!-- New BTC transaction ID field -->
+              <!-- BTC transaction ID field -->
               <div class="field">
                 <label for="btc_tx">Bitcoin transaction ID (optional)</label>
                 <input id="btc_tx" name="btc_tx" type="text" placeholder="Paste your BTC transaction hash after paying 599" />
@@ -782,8 +812,23 @@
 
 </div>
 
+<!-- QR library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrious/4.0.2/qrious.min.js"></script>
+
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Generate BTC QR code
+  document.addEventListener("DOMContentLoaded", function () {
+    if (window.QRious && document.getElementById("btc-qr")) {
+      new QRious({
+        element: document.getElementById("btc-qr"),
+        value: "bitcoin:3BjNYuWcg1iUKnypB8gee4ji5MQnUu3sRn",
+        size: 180,
+        level: "H"
+      });
+    }
+  });
 
   function goToContact(intentValue) {
     var select = document.getElementById("intent");
